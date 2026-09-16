@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Create account | Helper4U</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body data-page="register">
+  <div id="navbar"></div>
+
+  <main class="auth-shell">
+    <!-- left brand panel -->
+    <aside class="auth-aside">
+      <span class="aside-badge">2 minute signup</span>
+      <h2>Create an account, get help at home ready.</h2>
+      <p>If you're a household, book verified helpers. If you're a helper, create your profile and reach nearby families.</p>
+
+      <ul class="aside-points">
+        <li>
+          <i>◍</i>
+          <div><b>Choose your role</b><span>Household and Helper — separate dashboards for each.</span></div>
+        </li>
+        <li>
+          <i>⛨</i>
+          <div><b>Data secure</b><span>Passwords are hashed and stored securely in MongoDB.</span></div>
+        </li>
+        <li>
+          <i>★</i>
+          <div><b>Ratings &amp; reviews</b><span>Transparent feedback after every booking.</span></div>
+        </li>
+      </ul>
+
+      <div class="aside-stats">
+        <div><strong>Free</strong><small>No charge to create an account</small></div>
+        <div><strong>3 plans</strong><small>Hourly / Monthly / Yearly</small></div>
+      </div>
+    </aside>
+
+    <!-- right form panel -->
+    <section class="auth-main">
+      <form class="auth-card" id="registerForm" novalidate>
+        <h1>Create your account</h1>
+        <p class="auth-sub">Two short steps, then straight to your dashboard.</p>
+
+        <div class="steps" aria-hidden="true">
+          <div class="step is-active"><em>1</em>Your details</div>
+          <div class="step-line"><b id="stepLine"></b></div>
+          <div class="step"><em>2</em>Login setup</div>
+        </div>
+
+        <div class="notice" id="formNotice" role="alert" aria-live="polite"></div>
+
+        <!-- ---------- STEP 1 ---------- -->
+        <div class="panel is-current" id="panelOne">
+          <h2 tabindex="-1" style="font-size:17px;margin:0 0 14px">Which role would you like to join as?</h2>
+
+          <div class="role-grid">
+            <label class="role-card">
+              <input type="radio" name="role" value="household" checked>
+              <i>🏠</i>
+              <b>Household</b>
+              <span>I need a maid, nanny, or babysitter</span>
+            </label>
+            <label class="role-card">
+              <input type="radio" name="role" value="helper">
+              <i>🧑‍🍳</i>
+              <b>Helper</b>
+              <span>I'm looking for work</span>
+            </label>
+          </div>
+
+          <div class="field-block">
+            <label for="regName">Full name</label>
+            <div class="input-shell">
+              <i>◍</i>
+              <input id="regName" name="fullName" type="text" autocomplete="name"
+                     placeholder="Jaise: Priya Sharma" required>
+            </div>
+            <small class="hint" data-default=""></small>
+          </div>
+
+          <div class="field-row">
+            <div class="field-block">
+              <label for="regCity">City</label>
+              <div class="input-shell">
+                <i>⌖</i>
+                <input id="regCity" name="city" type="text" autocomplete="address-level2"
+                       placeholder="Aligarh" required>
+              </div>
+              <small class="hint" data-default=""></small>
+            </div>
+
+            <div class="field-block">
+              <label for="regPhone">Phone</label>
+              <div class="input-shell">
+                <i>☎</i>
+                <input id="regPhone" name="phone" type="tel" inputmode="numeric"
+                       autocomplete="tel" placeholder="10 digit number">
+              </div>
+              <small class="hint" data-default="Optional, but helpful for bookings."></small>
+            </div>
+          </div>
+
+          <div class="auth-actions">
+            <button class="btn btn-primary" id="toStepTwo" type="button">
+              <span class="label">Continue</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ---------- STEP 2 ---------- -->
+        <div class="panel" id="panelTwo">
+          <h2 tabindex="-1" style="font-size:17px;margin:0 0 14px">Set your login details</h2>
+
+          <div class="field-block">
+            <label for="regEmail">Email address</label>
+            <div class="input-shell">
+              <i>✉</i>
+              <input id="regEmail" name="email" type="email" autocomplete="email"
+                     placeholder="you@example.com" required>
+            </div>
+            <small class="hint" data-default="You'll log in with this email."></small>
+          </div>
+
+          <div class="field-block">
+            <label for="regPassword">Password</label>
+            <div class="input-shell">
+              <i>🔒</i>
+              <input id="regPassword" name="password" type="password" minlength="6"
+                     autocomplete="new-password" placeholder="At least 6 characters" required>
+              <button type="button" class="peek" data-target="regPassword" aria-label="Show password">Show</button>
+            </div>
+            <div class="meter" id="strength" data-score="0" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <small class="hint" data-default="Combining a capital letter, number, and symbol makes your password stronger."></small>
+          </div>
+
+          <div class="field-block">
+            <label for="regConfirm">Confirm password</label>
+            <div class="input-shell">
+              <i>🔒</i>
+              <input id="regConfirm" name="confirmPassword" type="password"
+                     autocomplete="new-password" placeholder="Re-enter your password" required>
+              <button type="button" class="peek" data-target="regConfirm" aria-label="Show password">Show</button>
+            </div>
+            <small class="hint" data-default=""></small>
+          </div>
+
+          <label class="checkline">
+            <input type="checkbox" id="regTerms">
+            <span>I agree to Helper4U's terms of service and privacy policy.</span>
+          </label>
+
+          <div class="auth-actions">
+            <button class="btn btn-outline" id="backToStepOne" type="button">
+              <span class="label">Back</span>
+            </button>
+            <button class="btn btn-primary" id="registerSubmit" type="submit">
+              <span class="spinner" aria-hidden="true"></span><span class="label">Create account</span>
+            </button>
+          </div>
+        </div>
+
+        <p class="auth-alt">Already have an account? <a href="login.html">Sign in</a></p>
+      </form>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script src="app.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

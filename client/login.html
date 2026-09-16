@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sign in | Helper4U</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body data-page="login">
+  <div id="navbar"></div>
+
+  <main class="auth-shell">
+    <!-- left brand panel -->
+    <aside class="auth-aside">
+      <span class="aside-badge">Helper4U account</span>
+      <h2>Manage all the help for your home from one account.</h2>
+      <p>Bookings, helper profiles, and payments — all in one place. Log in and pick up right where you left off.</p>
+
+      <ul class="aside-points">
+        <li>
+          <i>✓</i>
+          <div><b>Verified helpers</b><span>Every profile is listed after a background check.</span></div>
+        </li>
+        <li>
+          <i>◷</i>
+          <div><b>Flexible plans</b><span>Hourly, monthly, or yearly — whatever suits you.</span></div>
+        </li>
+        <li>
+          <i>☎</i>
+          <div><b>Support 24x7</b><span>Our team is available right away if there's an issue with a booking or service.</span></div>
+        </li>
+      </ul>
+
+      <div class="aside-stats">
+        <div><strong>1,200+</strong><small>Households served</small></div>
+        <div><strong>350+</strong><small>Verified helpers</small></div>
+        <div><strong>4.8★</strong><small>Average rating</small></div>
+      </div>
+    </aside>
+
+    <!-- right form panel -->
+    <section class="auth-main">
+      <form class="auth-card" id="loginForm" novalidate>
+        <h1>Sign in</h1>
+        <p class="auth-sub">Welcome back to your Helper4U account.</p>
+
+        <div class="notice" id="formNotice" role="alert" aria-live="polite"></div>
+
+        <div class="field-block">
+          <label for="loginEmail">Email address</label>
+          <div class="input-shell">
+            <i>✉</i>
+            <input id="loginEmail" name="email" type="email" autocomplete="email"
+                   placeholder="you@example.com" required>
+          </div>
+          <small class="hint" data-default=""></small>
+        </div>
+
+        <div class="field-block">
+          <div class="label-row">
+            <label for="loginPassword">Password</label>
+            <a class="forgot" href="contact.html">Forgot password?</a>
+          </div>
+          <div class="input-shell">
+            <i>🔒</i>
+            <input id="loginPassword" name="password" type="password"
+                   autocomplete="current-password" placeholder="Enter your password" required>
+            <button type="button" class="peek" data-target="loginPassword" aria-label="Show password">Show</button>
+          </div>
+          <small class="hint" data-default=""></small>
+        </div>
+
+        <div class="auth-actions">
+          <button class="btn btn-primary" id="loginSubmit" type="submit">
+            <span class="spinner" aria-hidden="true"></span><span class="label">Sign in</span>
+          </button>
+        </div>
+
+        <p class="auth-alt">Need a new account? <a href="register.html">Create an account</a></p>
+
+        <div class="demo-box">
+          <b>Demo admin</b> — admin@helper4u.com / Admin@123
+          <button type="button" id="useDemo">Fill for me</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+  <script src="app.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
