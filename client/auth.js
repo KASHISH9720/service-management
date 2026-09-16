@@ -10,7 +10,8 @@
   'use strict';
 
   const API_BASE =
-    (window.Helper4U && window.Helper4U.API) || 'http://localhost:5000/api';
+    (window.Helper4U && window.Helper4U.API) ||
+    (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
 
   /* ---------------- tiny helpers ---------------- */
 

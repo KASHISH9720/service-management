@@ -140,3 +140,7 @@ cd ../client && npm install && npm run dev
 
 To check: `http://localhost:5000/api/health` — should return `{"ok":true}`.
 To view data in the database: `mongosh` → `use helper4u` → `db.users.find().pretty()`
+
+
+## Deployment
+See `DEPLOYMENT.md` for the Vercel + Render + MongoDB Atlas deployment steps.

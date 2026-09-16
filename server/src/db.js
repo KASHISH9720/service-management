@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import mongoose from 'mongoose';
 
 // MongoDB connection layer (Mongoose).
@@ -6,12 +7,17 @@ import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/helper4u';
 
+if (process.env.NODE_ENV === 'production' && !process.env.MONGODB_URI) {
+  console.error('MONGODB_URI is required in production.');
+  process.exit(1);
+}
+
 mongoose.set('strictQuery', true);
 
 export async function connectDB() {
   try {
     await mongoose.connect(MONGODB_URI);
-    console.log(`MongoDB connected successfully -> ${MONGODB_URI}`);
+    console.log('MongoDB connected successfully.');
     return mongoose.connection;
   } catch (err) {
     console.error('MongoDB connection failed.');
