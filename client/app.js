@@ -1,4 +1,4 @@
-const API = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+const API = (window.HELPER4U_API || 'http://localhost:5000/api').replace(/\/$/, '');
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => document.querySelectorAll(s);
 

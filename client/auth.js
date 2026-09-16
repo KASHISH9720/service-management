@@ -11,7 +11,7 @@
 
   const API_BASE =
     (window.Helper4U && window.Helper4U.API) ||
-    (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+    (window.HELPER4U_API || 'http://localhost:5000/api').replace(/\/$/, '');
 
   /* ---------------- tiny helpers ---------------- */
 
